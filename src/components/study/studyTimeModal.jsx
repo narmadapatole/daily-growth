@@ -7,8 +7,9 @@ import {
   Web,
   AccountTree,
   Palette,
+  // GitHubIcon
 } from "@mui/icons-material";
-
+import GitHubIcon from "@mui/icons-material/GitHub";
 import {
   Box,
   Card,
@@ -17,6 +18,7 @@ import {
   Modal,
   Typography,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const studyTopics = [
   {
@@ -69,15 +71,25 @@ const studyTopics = [
     iconColor: "#007FFF",
     background: "#EEF8FF",
   },
+  // project  hosting
+  {
+    id: 6,
+    title: "Project Hosting",
+    description: "Git,GitHub & Deployment Basics",
+    // time: "25m",
+    // progress: 35,
+    icon: <GitHubIcon />,
+    iconColor: "#007FFF",
+    background: "#EEF8FF",
+  },
 ];
 
 const StudyTimeModal = ({ open, onClose }) => {
+  // for Navigation
+    const navigate = useNavigate();
+
   return (
-    <Modal
-      open={open}
-      onClose={onClose}
-      aria-labelledby="study-time-modal"
-    >
+    <Modal open={open} onClose={onClose} aria-labelledby="study-time-modal">
       <Box
         sx={{
           position: "absolute",
@@ -140,8 +152,7 @@ const StudyTimeModal = ({ open, onClose }) => {
                 fontSize: 13.5,
               }}
             >
-              Choose a topic and continue your
-              learning.
+              Choose a topic and continue your learning.
             </Typography>
           </Box>
 
@@ -234,26 +245,27 @@ const StudyTimeModal = ({ open, onClose }) => {
             <Card
               key={topic.id}
               elevation={0}
+              // onClick={() => {
+              //   console.log(
+              //     "Selected topic:",
+              //     topic.title
+              //   );
+              // }}
               onClick={() => {
-                console.log(
-                  "Selected topic:",
-                  topic.title
-                );
+                if (topic.title === "Project Hosting") {
+                  onClose();
+                  navigate("/project-hosting");
+                }
               }}
               sx={{
                 borderRadius: 3,
-                border:
-                  "1px solid #E5EAF1",
+                border: "1px solid #E5EAF1",
                 cursor: "pointer",
-                transition:
-                  "all 0.2s ease",
+                transition: "all 0.2s ease",
                 "&:hover": {
-                  transform:
-                    "translateY(-3px)",
-                  borderColor:
-                    topic.iconColor,
-                  boxShadow:
-                    "0 8px 25px rgba(23,35,60,0.08)",
+                  transform: "translateY(-3px)",
+                  borderColor: topic.iconColor,
+                  boxShadow: "0 8px 25px rgba(23,35,60,0.08)",
                 },
               }}
             >
@@ -273,16 +285,13 @@ const StudyTimeModal = ({ open, onClose }) => {
 
                       borderRadius: 2.5,
 
-                      backgroundColor:
-                        topic.background,
+                      backgroundColor: topic.background,
 
-                      color:
-                        topic.iconColor,
+                      color: topic.iconColor,
 
                       display: "flex",
                       alignItems: "center",
-                      justifyContent:
-                        "center",
+                      justifyContent: "center",
                     }}
                   >
                     {topic.icon}
@@ -322,8 +331,7 @@ const StudyTimeModal = ({ open, onClose }) => {
                 <Box
                   sx={{
                     display: "flex",
-                    justifyContent:
-                      "space-between",
+                    justifyContent: "space-between",
 
                     alignItems: "center",
 
@@ -343,8 +351,7 @@ const StudyTimeModal = ({ open, onClose }) => {
                     sx={{
                       fontSize: 13,
                       fontWeight: 700,
-                      color:
-                        topic.iconColor,
+                      color: topic.iconColor,
                     }}
                   >
                     {topic.time}
@@ -359,8 +366,7 @@ const StudyTimeModal = ({ open, onClose }) => {
 
                       borderRadius: 5,
 
-                      backgroundColor:
-                        "#EDF1F6",
+                      backgroundColor: "#EDF1F6",
 
                       overflow: "hidden",
                     }}
@@ -373,11 +379,9 @@ const StudyTimeModal = ({ open, onClose }) => {
 
                         borderRadius: 5,
 
-                        backgroundColor:
-                          topic.iconColor,
+                        backgroundColor: topic.iconColor,
 
-                        transition:
-                          "width 0.3s ease",
+                        transition: "width 0.3s ease",
                       }}
                     />
                   </Box>
