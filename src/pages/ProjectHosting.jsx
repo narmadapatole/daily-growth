@@ -9,6 +9,7 @@ import {
   Chip,
   LinearProgress,
   Stack,
+  Grid,
 } from "@mui/material";
 
 import {
@@ -34,38 +35,28 @@ const commandCategories = [
     commands: [
       {
         command: "git init",
-        meaning:
-          "Creates a new Git repository in your project.",
-        when:
-          "Use this when starting Git tracking for a new project.",
+        meaning: "Creates a new Git repository in your project.",
+        when: "Use this when starting Git tracking for a new project.",
       },
       {
         command: "git status",
-        meaning:
-          "Shows the current status of your files.",
-        when:
-          "Use this to check changed, staged and untracked files.",
+        meaning: "Shows the current status of your files.",
+        when: "Use this to check changed, staged and untracked files.",
       },
       {
         command: "git add .",
-        meaning:
-          "Adds all changed files to the staging area.",
-        when:
-          "Use this before creating a commit.",
+        meaning: "Adds all changed files to the staging area.",
+        when: "Use this before creating a commit.",
       },
       {
         command: 'git commit -m "message"',
-        meaning:
-          "Saves the staged changes into Git history.",
-        when:
-          "Use this after git add.",
+        meaning: "Saves the staged changes into Git history.",
+        when: "Use this after git add.",
       },
       {
         command: "git log",
-        meaning:
-          "Shows your previous commits.",
-        when:
-          "Use this when you want to see your Git history.",
+        meaning: "Shows your previous commits.",
+        when: "Use this when you want to see your Git history.",
       },
     ],
   },
@@ -75,46 +66,33 @@ const commandCategories = [
     commands: [
       {
         command: "git remote -v",
-        meaning:
-          "Shows the GitHub repository connected to your project.",
-        when:
-          "Use this to check your remote repository URL.",
+        meaning: "Shows the GitHub repository connected to your project.",
+        when: "Use this to check your remote repository URL.",
       },
       {
-        command:
-          "git remote add origin <repository-url>",
-        meaning:
-          "Connects your local project to a GitHub repository.",
-        when:
-          "Usually used when connecting a project to GitHub for the first time.",
+        command: "git remote add origin <repository-url>",
+        meaning: "Connects your local project to a GitHub repository.",
+        when: "Usually used when connecting a project to GitHub for the first time.",
       },
       {
         command: "git branch",
-        meaning:
-          "Shows the branches available in your local repository.",
-        when:
-          "Use this when working with multiple Git branches.",
+        meaning: "Shows the branches available in your local repository.",
+        when: "Use this when working with multiple Git branches.",
       },
       {
         command: "git push -u origin main",
-        meaning:
-          "Uploads your local commits to the main branch on GitHub.",
-        when:
-          "Use this for the first push to the main branch.",
+        meaning: "Uploads your local commits to the main branch on GitHub.",
+        when: "Use this for the first push to the main branch.",
       },
       {
         command: "git push",
-        meaning:
-          "Uploads your new commits to GitHub.",
-        when:
-          "Use this after committing new changes.",
+        meaning: "Uploads your new commits to GitHub.",
+        when: "Use this after committing new changes.",
       },
       {
         command: "git pull",
-        meaning:
-          "Downloads the latest changes from GitHub.",
-        when:
-          "Use this when the remote repository has newer changes.",
+        meaning: "Downloads the latest changes from GitHub.",
+        when: "Use this when the remote repository has newer changes.",
       },
     ],
   },
@@ -124,31 +102,23 @@ const commandCategories = [
     commands: [
       {
         command: "npm install",
-        meaning:
-          "Installs the dependencies listed in package.json.",
-        when:
-          "Use this after cloning a project or when dependencies change.",
+        meaning: "Installs the dependencies listed in package.json.",
+        when: "Use this after cloning a project or when dependencies change.",
       },
       {
         command: "npm run dev",
-        meaning:
-          "Starts the Vite development server.",
-        when:
-          "Use this while developing your project locally.",
+        meaning: "Starts the Vite development server.",
+        when: "Use this while developing your project locally.",
       },
       {
         command: "npm run build",
-        meaning:
-          "Creates an optimized production build.",
-        when:
-          "Use this to check whether your project can build for production.",
+        meaning: "Creates an optimized production build.",
+        when: "Use this to check whether your project can build for production.",
       },
       {
         command: "npm run preview",
-        meaning:
-          "Runs the production build locally for preview.",
-        when:
-          "Use this after npm run build to test the production version.",
+        meaning: "Runs the production build locally for preview.",
+        when: "Use this after npm run build to test the production version.",
       },
     ],
   },
@@ -158,24 +128,18 @@ const commandCategories = [
     commands: [
       {
         command: "git add .",
-        meaning:
-          "Stages your latest project changes.",
-        when:
-          "Use this before committing your changes.",
+        meaning: "Stages your latest project changes.",
+        when: "Use this before committing your changes.",
       },
       {
         command: 'git commit -m "Update project"',
-        meaning:
-          "Creates a Git commit containing your latest changes.",
-        when:
-          "Use this after staging your changes.",
+        meaning: "Creates a Git commit containing your latest changes.",
+        when: "Use this after staging your changes.",
       },
       {
         command: "git push",
-        meaning:
-          "Pushes your latest commit to GitHub.",
-        when:
-          "Use this whenever you want to send local updates to GitHub.",
+        meaning: "Pushes your latest commit to GitHub.",
+        when: "Use this whenever you want to send local updates to GitHub.",
       },
     ],
   },
@@ -186,8 +150,7 @@ const commandCategories = [
 ========================================================= */
 
 const ProjectHosting = () => {
-  const [copiedCommand, setCopiedCommand] =
-    useState("");
+  const [copiedCommand, setCopiedCommand] = useState("");
 
   /* =====================================================
      COPY COMMAND
@@ -214,15 +177,13 @@ const ProjectHosting = () => {
   const projects = [
     {
       name: "Daily Growth",
-      description:
-        "Personal learning and productivity dashboard",
+      description: "Personal learning and productivity dashboard",
       technology: "React + Vite",
       status: "Live",
       progress: 100,
 
       // Replace these with your actual URLs
-      githubUrl:
-        "https://github.com/narmadapatole/daily-growth",
+      githubUrl: "https://github.com/narmadapatole/daily-growth",
       liveUrl: "#",
     },
   ];
@@ -279,8 +240,7 @@ const ProjectHosting = () => {
               fontSize: 14,
             }}
           >
-            Learn how to host, deploy and manage
-            your projects.
+            Learn how to host, deploy and manage your projects.
           </Typography>
         </Box>
 
@@ -406,8 +366,8 @@ const ProjectHosting = () => {
               mb: 3,
             }}
           >
-            Understand how your code moves from
-            local development to a live website.
+            Understand how your code moves from local development to a live
+            website.
           </Typography>
 
           <Box
@@ -533,8 +493,8 @@ const ProjectHosting = () => {
               mb: 3,
             }}
           >
-            Common commands used while developing,
-            pushing and deploying your projects.
+            Common commands used while developing, pushing and deploying your
+            projects.
           </Typography>
 
           {commandCategories.map((category) => (
@@ -581,8 +541,7 @@ const ProjectHosting = () => {
 
                       borderRadius: 2.5,
 
-                      border:
-                        "1px solid #E5EAF1",
+                      border: "1px solid #E5EAF1",
 
                       backgroundColor: "#FAFBFC",
                     }}
@@ -594,8 +553,7 @@ const ProjectHosting = () => {
 
                         alignItems: "center",
 
-                        justifyContent:
-                          "space-between",
+                        justifyContent: "space-between",
 
                         gap: 2,
                       }}
@@ -603,8 +561,7 @@ const ProjectHosting = () => {
                       <Box
                         component="code"
                         sx={{
-                          fontFamily:
-                            "monospace",
+                          fontFamily: "monospace",
 
                           fontSize: {
                             xs: 12,
@@ -617,8 +574,7 @@ const ProjectHosting = () => {
 
                           overflowX: "auto",
 
-                          wordBreak:
-                            "break-word",
+                          wordBreak: "break-word",
                         }}
                       >
                         {item.command}
@@ -628,33 +584,24 @@ const ProjectHosting = () => {
                         size="small"
                         variant="outlined"
                         startIcon={
-                          copiedCommand ===
-                          item.command ? (
+                          copiedCommand === item.command ? (
                             <CheckIcon />
                           ) : (
                             <ContentCopyIcon />
                           )
                         }
-                        onClick={() =>
-                          handleCopy(
-                            item.command
-                          )
-                        }
+                        onClick={() => handleCopy(item.command)}
                         sx={{
                           minWidth: 80,
 
-                          textTransform:
-                            "none",
+                          textTransform: "none",
 
                           borderRadius: 2,
 
                           flexShrink: 0,
                         }}
                       >
-                        {copiedCommand ===
-                        item.command
-                          ? "Copied"
-                          : "Copy"}
+                        {copiedCommand === item.command ? "Copied" : "Copy"}
                       </Button>
                     </Box>
 
@@ -719,344 +666,47 @@ const ProjectHosting = () => {
         </CardContent>
       </Card>
 
-      {/* =================================================
-          MY PROJECTS
-      ================================================= */}
-
-      <Card
-        elevation={0}
-        sx={{
-          borderRadius: 3,
-
-          border: "1px solid #E5EAF1",
-        }}
-      >
-        <CardContent
-          sx={{
-            p: {
-              xs: 2,
-              sm: 3,
-            },
-          }}
-        >
-          {/* Header */}
-          <Box
-            sx={{
-              display: "flex",
-
-              justifyContent:
-                "space-between",
-
-              alignItems: "center",
-
-              mb: 2.5,
-
-              gap: 2,
-            }}
-          >
-            <Box>
-              <Typography
-                sx={{
-                  fontSize: 18,
-
-                  fontWeight: 700,
-
-                  color: "#17233C",
-                }}
-              >
-                My Projects
+      {/* about Vercel */}
+      <Box>
+        <Card>
+          <Box>
+            <Grid container>
+              <Grid item>
+                <Typography
+                  sx={{
+                    color: "#f5455c",
+                    fontWeight: "bold",
+                    fontSize: "25px",
+                  }}
+                >
+                  About Vercel
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid container>
+              <Grid item>
+                <Typography
+                  sx={{
+                    fontSize: "20px",
+                  }}
+                >
+                  Vercel is a platform that takes your web project from GitHub
+                  and puts it on the internet so other people can open it with a
+                  URL.
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid container>
+              <Grid item W>
+                <Typography>
+                Your Computer │ │ git push ↓ GitHub │ │ automatic deployment ↓
+                Vercel │ ↓ 🌍 Live Website https://your-project.vercel.app
               </Typography>
-
-              <Typography
-                sx={{
-                  fontSize: 13,
-
-                  color: "#718096",
-
-                  mt: 0.3,
-                }}
-              >
-                Your hosted projects and
-                deployment status.
-              </Typography>
-            </Box>
-
-            <Chip
-              label={`${projects.length} Project`}
-              size="small"
-              sx={{
-                backgroundColor:
-                  "#EEF5FF",
-
-                color: "#1769E8",
-
-                fontWeight: 600,
-              }}
-            />
+              </Grid>
+            </Grid>
           </Box>
-
-          {/* Projects */}
-          {projects.map((project) => (
-            <Box
-              key={project.name}
-              sx={{
-                p: 2,
-
-                borderRadius: 2.5,
-
-                border:
-                  "1px solid #E8ECF2",
-
-                backgroundColor:
-                  "#FAFBFC",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-
-                  justifyContent:
-                    "space-between",
-
-                  gap: 2,
-
-                  flexWrap: "wrap",
-                }}
-              >
-                {/* Project Info */}
-                <Box
-                  sx={{
-                    display: "flex",
-
-                    gap: 1.5,
-
-                    minWidth: 0,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      width: 45,
-
-                      height: 45,
-
-                      borderRadius: 2,
-
-                      backgroundColor:
-                        "#EEF5FF",
-
-                      color: "#1769E8",
-
-                      display: "flex",
-
-                      alignItems: "center",
-
-                      justifyContent:
-                        "center",
-
-                      flexShrink: 0,
-                    }}
-                  >
-                    <CodeIcon />
-                  </Box>
-
-                  <Box sx={{ minWidth: 0 }}>
-                    <Typography
-                      sx={{
-                        fontSize: 16,
-
-                        fontWeight: 700,
-
-                        color: "#17233C",
-                      }}
-                    >
-                      {project.name}
-                    </Typography>
-
-                    <Typography
-                      sx={{
-                        fontSize: 12,
-
-                        color: "#718096",
-
-                        mt: 0.3,
-                      }}
-                    >
-                      {project.description}
-                    </Typography>
-
-                    <Stack
-                      direction="row"
-                      spacing={1}
-                      sx={{
-                        mt: 1,
-
-                        flexWrap:
-                          "wrap",
-
-                        gap: 0.5,
-                      }}
-                    >
-                      <Chip
-                        label={
-                          project.technology
-                        }
-                        size="small"
-                        sx={{
-                          fontSize: 10,
-
-                          height: 24,
-                        }}
-                      />
-
-                      <Chip
-                        icon={
-                          <CheckCircleIcon
-                            sx={{
-                              fontSize: 15,
-                            }}
-                          />
-                        }
-                        label={
-                          project.status
-                        }
-                        size="small"
-                        sx={{
-                          fontSize: 10,
-
-                          height: 24,
-
-                          backgroundColor:
-                            "#ECFDF3",
-
-                          color: "#16803C",
-                        }}
-                      />
-                    </Stack>
-                  </Box>
-                </Box>
-
-                {/* Buttons */}
-                <Box
-                  sx={{
-                    display: "flex",
-
-                    gap: 1,
-
-                    alignItems: "center",
-                  }}
-                >
-                  <Button
-                    size="small"
-                    variant="outlined"
-                    startIcon={
-                      <GitHubIcon />
-                    }
-                    href={
-                      project.githubUrl
-                    }
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{
-                      textTransform:
-                        "none",
-
-                      borderRadius: 2,
-                    }}
-                  >
-                    GitHub
-                  </Button>
-
-                  <Button
-                    size="small"
-                    variant="contained"
-                    startIcon={
-                      <LanguageIcon />
-                    }
-                    href={
-                      project.liveUrl
-                    }
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{
-                      textTransform:
-                        "none",
-
-                      borderRadius: 2,
-
-                      backgroundColor:
-                        "#1769E8",
-
-                      "&:hover": {
-                        backgroundColor:
-                          "#1258C7",
-                      },
-                    }}
-                  >
-                    Live
-                  </Button>
-                </Box>
-              </Box>
-
-              {/* Progress */}
-              <Box sx={{ mt: 2 }}>
-                <Box
-                  sx={{
-                    display: "flex",
-
-                    justifyContent:
-                      "space-between",
-
-                    mb: 0.5,
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      fontSize: 11,
-
-                      color: "#718096",
-                    }}
-                  >
-                    Deployment progress
-                  </Typography>
-
-                  <Typography
-                    sx={{
-                      fontSize: 11,
-
-                      fontWeight: 600,
-
-                      color: "#1769E8",
-                    }}
-                  >
-                    {project.progress}%
-                  </Typography>
-                </Box>
-
-                <LinearProgress
-                  variant="determinate"
-                  value={project.progress}
-                  sx={{
-                    height: 6,
-
-                    borderRadius: 5,
-
-                    backgroundColor:
-                      "#E9EEF5",
-
-                    "& .MuiLinearProgress-bar":
-                      {
-                        borderRadius: 5,
-
-                        backgroundColor:
-                          "#1769E8",
-                      },
-                  }}
-                />
-              </Box>
-            </Box>
-          ))}
-        </CardContent>
-      </Card>
+        </Card>
+      </Box>
     </Box>
   );
 };
@@ -1065,13 +715,7 @@ const ProjectHosting = () => {
    OVERVIEW CARD
 ========================================================= */
 
-const OverviewCard = ({
-  icon,
-  title,
-  value,
-  color,
-  background,
-}) => {
+const OverviewCard = ({ icon, title, value, color, background }) => {
   return (
     <Card
       elevation={0}
@@ -1099,8 +743,7 @@ const OverviewCard = ({
 
               borderRadius: 2,
 
-              backgroundColor:
-                background,
+              backgroundColor: background,
 
               color: color,
 
@@ -1149,73 +792,70 @@ const OverviewCard = ({
    FLOW ITEM
 ========================================================= */
 
-const FlowItem = ({
-  icon,
-  title,
-  subtitle,
-  color,
-}) => {
+const FlowItem = ({ icon, title, subtitle, color }) => {
   return (
-    <Box
-      sx={{
-        textAlign: "center",
-
-        minWidth: {
-          xs: 65,
-          sm: 80,
-        },
-      }}
-    >
+    <>
       <Box
         sx={{
-          width: 48,
+          textAlign: "center",
 
-          height: 48,
-
-          borderRadius: "50%",
-
-          margin: "auto",
-
-          backgroundColor: "#F5F7FA",
-
-          color: color,
-
-          display: "flex",
-
-          alignItems: "center",
-
-          justifyContent: "center",
-
-          border: `1px solid ${color}`,
+          minWidth: {
+            xs: 65,
+            sm: 80,
+          },
         }}
       >
-        {icon}
+        <Box
+          sx={{
+            width: 48,
+
+            height: 48,
+
+            borderRadius: "50%",
+
+            margin: "auto",
+
+            backgroundColor: "#F5F7FA",
+
+            color: color,
+
+            display: "flex",
+
+            alignItems: "center",
+
+            justifyContent: "center",
+
+            border: `1px solid ${color}`,
+          }}
+        >
+          {icon}
+        </Box>
+
+        <Typography
+          sx={{
+            mt: 0.8,
+
+            fontSize: 12,
+
+            fontWeight: 700,
+
+            color: "#17233C",
+          }}
+        >
+          {title}
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: 10,
+
+            color: "#8994A5",
+          }}
+        >
+          {subtitle}
+        </Typography>
       </Box>
-
-      <Typography
-        sx={{
-          mt: 0.8,
-
-          fontSize: 12,
-
-          fontWeight: 700,
-
-          color: "#17233C",
-        }}
-      >
-        {title}
-      </Typography>
-
-      <Typography
-        sx={{
-          fontSize: 10,
-
-          color: "#8994A5",
-        }}
-      >
-        {subtitle}
-      </Typography>
-    </Box>
+    </>
   );
 };
 
