@@ -23,8 +23,12 @@ import {
 } from "@mui/icons-material";
 
 import StudyTimeModal from "../components/study/studyTimeModal";
+import { useNavigate } from "react-router-dom";
+
+
 const Dashboard = () => {
   const [studyModalOpen, setStudyModalOpen] = useState(false);
+// const navigate = useNavigate();
 
   // Cards Content Data
   const stats = [

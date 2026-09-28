@@ -245,18 +245,18 @@ const StudyTimeModal = ({ open, onClose }) => {
             <Card
               key={topic.id}
               elevation={0}
-              // onClick={() => {
-              //   console.log(
-              //     "Selected topic:",
-              //     topic.title
-              //   );
-              // }}
+
               onClick={() => {
                 if (topic.title === "Project Hosting") {
                   onClose();
                   navigate("/project-hosting");
                 }
+                else if(topic.title === "React") {
+                  onClose();
+                  navigate("/react-notes");
+                }
               }}
+
               sx={{
                 borderRadius: 3,
                 border: "1px solid #E5EAF1",
@@ -328,7 +328,7 @@ const StudyTimeModal = ({ open, onClose }) => {
                 </Box>
 
                 {/* Time */}
-                <Box
+                {/* <Box
                   sx={{
                     display: "flex",
                     justifyContent: "space-between",
@@ -356,10 +356,10 @@ const StudyTimeModal = ({ open, onClose }) => {
                   >
                     {topic.time}
                   </Typography>
-                </Box>
+                </Box> */}
 
                 {/* Progress */}
-                <Box sx={{ mt: 1 }}>
+                {/* <Box sx={{ mt: 1 }}>
                   <Box
                     sx={{
                       height: 6,
@@ -396,7 +396,7 @@ const StudyTimeModal = ({ open, onClose }) => {
                   >
                     {topic.progress}% complete
                   </Typography>
-                </Box>
+                </Box> */}
               </CardContent>
             </Card>
           ))}
