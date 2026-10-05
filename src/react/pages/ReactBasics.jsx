@@ -1298,11 +1298,7 @@ const TopicCard = ({ topic }) => {
       }}
     >
       <CardContent sx={{ p: 3 }}>
-        <Typography
-          variant="h6"
-          fontWeight={700}
-          sx={{ mb: 2 }}
-        >
+        <Typography variant="h6" fontWeight={700} sx={{ mb: 2 }}>
           {topic.title}
         </Typography>
 
@@ -1320,11 +1316,7 @@ const TopicCard = ({ topic }) => {
 
         {topic.points?.length > 0 && (
           <Box sx={{ mt: 3 }}>
-            <Typography
-              variant="subtitle1"
-              fontWeight={700}
-              sx={{ mb: 1 }}
-            >
+            <Typography variant="subtitle1" fontWeight={700} sx={{ mb: 1 }}>
               Important Points
             </Typography>
 
@@ -1357,17 +1349,10 @@ const TopicCard = ({ topic }) => {
 
         {topic.example && (
           <Box sx={{ mt: 3 }}>
-            <Stack
-              direction="row"
-              spacing={1}
-              alignItems="center"
-            >
+            <Stack direction="row" spacing={1} alignItems="center">
               <Code fontSize="small" />
 
-              <Typography
-                variant="subtitle1"
-                fontWeight={700}
-              >
+              <Typography variant="subtitle1" fontWeight={700}>
                 Example
               </Typography>
             </Stack>
@@ -1385,29 +1370,23 @@ const TopicCard = ({ topic }) => {
 ========================================================= */
 
 const ReactBasics = () => {
-  const [selectedSection, setSelectedSection] =
-    useState("introduction");
+  const [selectedSection, setSelectedSection] = useState("introduction");
 
   const [searchText, setSearchText] = useState("");
 
-  const [expandedTopic, setExpandedTopic] =
-    useState(null);
+  const [expandedTopic, setExpandedTopic] = useState(null);
 
   /* Notes */
   const [notes, setNotes] = useState([]);
 
   const [noteText, setNoteText] = useState("");
 
-  const [editingNoteId, setEditingNoteId] =
-    useState(null);
+  const [editingNoteId, setEditingNoteId] = useState(null);
 
-  const [showNoteEditor, setShowNoteEditor] =
-    useState(false);
+  const [showNoteEditor, setShowNoteEditor] = useState(false);
 
   const selectedData = useMemo(() => {
-    return reactSections.find(
-      section => section.id === selectedSection
-    );
+    return reactSections.find((section) => section.id === selectedSection);
   }, [selectedSection]);
 
   /* Search */
@@ -1420,11 +1399,10 @@ const ReactBasics = () => {
 
     const search = searchText.toLowerCase();
 
-    return selectedData.topics.filter(topic => {
-      const content =
-        `${topic.title} ${topic.content || ""} ${
-          topic.points?.join(" ") || ""
-        } ${topic.example || ""}`.toLowerCase();
+    return selectedData.topics.filter((topic) => {
+      const content = `${topic.title} ${topic.content || ""} ${
+        topic.points?.join(" ") || ""
+      } ${topic.example || ""}`.toLowerCase();
 
       return content.includes(search);
     });
@@ -1438,20 +1416,20 @@ const ReactBasics = () => {
     if (!noteText.trim()) return;
 
     if (editingNoteId) {
-      setNotes(prev =>
-        prev.map(note =>
+      setNotes((prev) =>
+        prev.map((note) =>
           note.id === editingNoteId
             ? {
                 ...note,
                 text: noteText,
               }
-            : note
-        )
+            : note,
+        ),
       );
 
       setEditingNoteId(null);
     } else {
-      setNotes(prev => [
+      setNotes((prev) => [
         ...prev,
         {
           id: Date.now(),
@@ -1464,16 +1442,14 @@ const ReactBasics = () => {
     setShowNoteEditor(false);
   };
 
-  const handleEditNote = note => {
+  const handleEditNote = (note) => {
     setNoteText(note.text);
     setEditingNoteId(note.id);
     setShowNoteEditor(true);
   };
 
-  const handleDeleteNote = id => {
-    setNotes(prev =>
-      prev.filter(note => note.id !== id)
-    );
+  const handleDeleteNote = (id) => {
+    setNotes((prev) => prev.filter((note) => note.id !== id));
   };
 
   const handleCancelNote = () => {
@@ -1491,7 +1467,6 @@ const ReactBasics = () => {
       {/* =================================================
           PAGE HEADER
       ================================================= */}
-
       <Card
         elevation={0}
         sx={{
@@ -1515,23 +1490,12 @@ const ReactBasics = () => {
             spacing={2}
           >
             <Box>
-              <Stack
-                direction="row"
-                spacing={1}
-                alignItems="center"
-              >
-                <Typography
-                  variant="h4"
-                  fontWeight={800}
-                >
+              <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="h4" fontWeight={800}>
                   ⚛️ React Basics
                 </Typography>
 
-                <Chip
-                  label="Personal Notes"
-                  size="small"
-                  color="primary"
-                />
+                <Chip label="Personal Notes" size="small" color="primary" />
               </Stack>
 
               <Typography
@@ -1540,16 +1504,12 @@ const ReactBasics = () => {
                   color: "text.secondary",
                 }}
               >
-                My personal React learning notes,
-                concepts, examples and interview
-                preparation.
+                My personal React learning notes, concepts, examples and
+                interview preparation.
               </Typography>
             </Box>
 
-            <Stack
-              direction="row"
-              spacing={1}
-            >
+            <Stack direction="row" spacing={1}>
               <Chip
                 icon={<MenuBook />}
                 label={`${reactSections.length} Sections`}
@@ -1558,9 +1518,8 @@ const ReactBasics = () => {
 
               <Chip
                 label={`${reactSections.reduce(
-                  (total, section) =>
-                    total + section.topics.length,
-                  0
+                  (total, section) => total + section.topics.length,
+                  0,
                 )} Topics`}
                 variant="outlined"
               />
@@ -1568,18 +1527,14 @@ const ReactBasics = () => {
           </Stack>
         </CardContent>
       </Card>
-
       {/* =================================================
           SEARCH
       ================================================= */}
-
       <TextField
         fullWidth
         placeholder="Search in React notes..."
         value={searchText}
-        onChange={e =>
-          setSearchText(e.target.value)
-        }
+        onChange={(e) => setSearchText(e.target.value)}
         sx={{
           mb: 3,
           backgroundColor: "background.paper",
@@ -1594,109 +1549,261 @@ const ReactBasics = () => {
 
           endAdornment: searchText && (
             <InputAdornment position="end">
-              <IconButton
-                size="small"
-                onClick={() => setSearchText("")}
-              >
+              <IconButton size="small" onClick={() => setSearchText("")}>
                 <Close />
               </IconButton>
             </InputAdornment>
           ),
         }}
       />
-
       {/* =================================================
           MAIN CONTENT
       ================================================= */}
+      <Box sx={{ width: "100%" }}>
+        {/* =========================================================
+      TOP AREA
+      LEFT  = React Topics
+      RIGHT = React Topic Content
+  ========================================================= */}
 
-      <Grid container spacing={3}>
-        {/* =================================================
-            LEFT SIDEBAR
-        ================================================= */}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              md: "280px minmax(0, 1fr)",
+            },
+            gap: 2,
+            width: "100%",
+            alignItems: "start",
+          }}
+        >
+          {/* =====================================================
+        LEFT SIDE - REACT TOPICS
+    ===================================================== */}
 
-        <Grid item xs={12} md={3}>
-          <Card
-            elevation={0}
-            sx={{
-              borderRadius: 3,
-              border: "1px solid",
-              borderColor: "divider",
-              position: {
-                md: "sticky",
-              },
-              top: 20,
-            }}
-          >
-            <CardContent sx={{ p: 1 }}>
-              <Typography
-                fontWeight={700}
-                sx={{ px: 2, py: 1.5 }}
-              >
-                React Topics
-              </Typography>
+          <Box>
+            <Card
+              sx={{
+                borderRadius: 3,
+                border: "1px solid",
+                borderColor: "divider",
+                width: "100%",
+              }}
+            >
+              <CardContent sx={{ p: 1 }}>
+                <Typography
+                  fontWeight={700}
+                  sx={{
+                    px: 2,
+                    py: 1.5,
+                  }}
+                >
+                  React Topics
+                </Typography>
 
-              <Divider />
+                <Divider />
 
-              <List disablePadding>
-                {reactSections.map(section => (
-                  <ListItemButton
-                    key={section.id}
-                    selected={
-                      selectedSection === section.id
-                    }
-                    onClick={() => {
-                      setSelectedSection(section.id);
-                      setSearchText("");
-                      setExpandedTopic(null);
-                    }}
-                    sx={{
-                      borderRadius: 2,
-                      mx: 0.5,
-                      my: 0.3,
-                    }}
-                  >
-                    <Typography
+                <List disablePadding>
+                  {reactSections.map((section) => (
+                    <ListItemButton
+                      key={section.id}
+                      selected={selectedSection === section.id}
+                      onClick={() => {
+                        setSelectedSection(section.id);
+                        setSearchText("");
+                        setExpandedTopic(null);
+                      }}
                       sx={{
-                        fontSize: 20,
-                        mr: 1.5,
+                        borderRadius: 2,
+                        mx: 0.5,
+                        my: 0.3,
                       }}
                     >
-                      {section.icon}
+                      <Typography
+                        sx={{
+                          fontSize: 20,
+                          mr: 1.5,
+                        }}
+                      >
+                        {section.icon}
+                      </Typography>
+
+                      <ListItemText
+                        primary={section.title}
+                        secondary={`${section.topics.length} topics`}
+                        primaryTypographyProps={{
+                          fontWeight:
+                            selectedSection === section.id ? 700 : 500,
+                        }}
+                      />
+                    </ListItemButton>
+                  ))}
+                </List>
+              </CardContent>
+            </Card>
+          </Box>
+
+          {/* =====================================================
+        RIGHT SIDE - REACT TOPIC CONTENT
+    ===================================================== */}
+
+          <Box sx={{ minWidth: 0 }}>
+            <Card
+              elevation={0}
+              sx={{
+                borderRadius: 3,
+                border: "1px solid",
+                borderColor: "divider",
+                width: "100%",
+              }}
+            >
+              <CardContent
+                sx={{
+                  p: {
+                    xs: 2,
+                    md: 3,
+                  },
+                }}
+              >
+                {/* SECTION HEADER */}
+
+                <Stack
+                  direction={{
+                    xs: "column",
+                    sm: "row",
+                  }}
+                  justifyContent="space-between"
+                  alignItems={{
+                    xs: "flex-start",
+                    sm: "center",
+                  }}
+                  spacing={1}
+                  sx={{
+                    mb: 3,
+                  }}
+                >
+                  <Box>
+                    <Typography variant="h5" fontWeight={800}>
+                      {selectedData?.icon} {selectedData?.title}
                     </Typography>
 
-                    <ListItemText
-                      primary={section.title}
-                      secondary={`${section.topics.length} topics`}
-                      primaryTypographyProps={{
-                        fontWeight:
-                          selectedSection ===
-                          section.id
-                            ? 700
-                            : 500,
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{
+                        mt: 0.5,
                       }}
-                    />
-                  </ListItemButton>
-                ))}
-              </List>
-            </CardContent>
-          </Card>
-        </Grid>
+                    >
+                      {filteredTopics.length} topics
+                    </Typography>
+                  </Box>
 
-        {/* =================================================
-            RIGHT CONTENT
-        ================================================= */}
+                  <Chip
+                    label="React Learning"
+                    color="primary"
+                    variant="outlined"
+                  />
+                </Stack>
 
-        <Grid item xs={12} md={9}>
+                {/* =================================================
+              TOPICS
+          ================================================= */}
+
+                {filteredTopics.length === 0 ? (
+                  <Paper
+                    elevation={0}
+                    sx={{
+                      p: 4,
+                      textAlign: "center",
+                      border: "1px dashed",
+                      borderColor: "divider",
+                    }}
+                  >
+                    <Typography color="text.secondary">
+                      No topic found.
+                    </Typography>
+                  </Paper>
+                ) : (
+                  filteredTopics.map((topic, index) => (
+                    <Accordion
+                      key={`${topic.title}-${index}`}
+                      expanded={expandedTopic === `${selectedSection}-${index}`}
+                      onChange={() =>
+                        setExpandedTopic(
+                          expandedTopic === `${selectedSection}-${index}`
+                            ? null
+                            : `${selectedSection}-${index}`,
+                        )
+                      }
+                      elevation={0}
+                      sx={{
+                        mb: 1.5,
+                        border: "1px solid",
+                        borderColor: "divider",
+                        borderRadius: "12px !important",
+
+                        "&:before": {
+                          display: "none",
+                        },
+                      }}
+                    >
+                      <AccordionSummary
+                        expandIcon={<ExpandMore />}
+                        sx={{
+                          px: 2,
+                          py: 0.5,
+                        }}
+                      >
+                        <Stack direction="row" spacing={1} alignItems="center">
+                          <Typography fontWeight={700}>{index + 1}.</Typography>
+
+                          <Typography fontWeight={600}>
+                            {topic.title}
+                          </Typography>
+                        </Stack>
+                      </AccordionSummary>
+
+                      <AccordionDetails
+                        sx={{
+                          p: 2,
+                        }}
+                      >
+                        <TopicCard topic={topic} />
+                      </AccordionDetails>
+                    </Accordion>
+                  ))
+                )}
+              </CardContent>
+            </Card>
+          </Box>
+        </Box>
+
+        {/* =========================================================
+      PERSONAL NOTES
+      THIS IS OUTSIDE THE TOP GRID
+      THEREFORE IT WILL ALWAYS BE BELOW
+  ========================================================= */}
+
+        <Box
+          sx={{
+            width: "100%",
+            mt: 2,
+          }}
+        >
           <Card
             elevation={0}
             sx={{
+              width: "100%",
               borderRadius: 3,
               border: "1px solid",
               borderColor: "divider",
             }}
           >
-            <CardContent sx={{ p: { xs: 2, md: 3 } }}>
-              {/* SECTION HEADER */}
+            <CardContent sx={{ p: 3 }}>
+              {/* =================================================
+            NOTES HEADER
+        ================================================= */}
 
               <Stack
                 direction={{
@@ -1708,156 +1815,15 @@ const ReactBasics = () => {
                   xs: "flex-start",
                   sm: "center",
                 }}
-                spacing={1}
-                sx={{ mb: 3 }}
-              >
-                <Box>
-                  <Typography
-                    variant="h5"
-                    fontWeight={800}
-                  >
-                    {selectedData?.icon}{" "}
-                    {selectedData?.title}
-                  </Typography>
-
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{ mt: 0.5 }}
-                  >
-                    {filteredTopics.length} topics
-                  </Typography>
-                </Box>
-
-                <Chip
-                  label="React Learning"
-                  color="primary"
-                  variant="outlined"
-                />
-              </Stack>
-
-              {/* TOPICS */}
-
-              {filteredTopics.length === 0 ? (
-                <Paper
-                  elevation={0}
-                  sx={{
-                    p: 4,
-                    textAlign: "center",
-                    border: "1px dashed",
-                    borderColor: "divider",
-                  }}
-                >
-                  <Typography color="text.secondary">
-                    No topic found.
-                  </Typography>
-                </Paper>
-              ) : (
-                filteredTopics.map(
-                  (topic, index) => (
-                    <Accordion
-                      key={`${topic.title}-${index}`}
-                      expanded={
-                        expandedTopic ===
-                        `${selectedSection}-${index}`
-                      }
-                      onChange={() =>
-                        setExpandedTopic(
-                          expandedTopic ===
-                            `${selectedSection}-${index}`
-                            ? null
-                            : `${selectedSection}-${index}`
-                        )
-                      }
-                      elevation={0}
-                      sx={{
-                        mb: 1.5,
-                        border:
-                          "1px solid",
-                        borderColor:
-                          "divider",
-                        borderRadius:
-                          "12px !important",
-
-                        "&:before": {
-                          display: "none",
-                        },
-                      }}
-                    >
-                      <AccordionSummary
-                        expandIcon={
-                          <ExpandMore />
-                        }
-                        sx={{
-                          px: 2,
-                          py: 0.5,
-                        }}
-                      >
-                        <Stack
-                          direction="row"
-                          spacing={1}
-                          alignItems="center"
-                        >
-                          <Typography
-                            fontWeight={700}
-                          >
-                            {index + 1}.
-                          </Typography>
-
-                          <Typography
-                            fontWeight={600}
-                          >
-                            {topic.title}
-                          </Typography>
-                        </Stack>
-                      </AccordionSummary>
-
-                      <AccordionDetails
-                        sx={{ p: 2 }}
-                      >
-                        <TopicCard
-                          topic={topic}
-                        />
-                      </AccordionDetails>
-                    </Accordion>
-                  )
-                )
-              )}
-            </CardContent>
-          </Card>
-
-          {/* =================================================
-              PERSONAL NOTES
-          ================================================= */}
-
-          <Card
-            elevation={0}
-            sx={{
-              mt: 3,
-              borderRadius: 3,
-              border: "1px solid",
-              borderColor: "divider",
-            }}
-          >
-            <CardContent sx={{ p: 3 }}>
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
+                spacing={2}
                 mb={2}
               >
                 <Box>
-                  <Typography
-                    variant="h6"
-                    fontWeight={800}
-                  >
+                  <Typography variant="h6" fontWeight={800}>
                     📝 My Personal Notes
                   </Typography>
 
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                  >
+                  <Typography variant="body2" color="text.secondary">
                     Add your own learning notes here.
                   </Typography>
                 </Box>
@@ -1866,9 +1832,7 @@ const ReactBasics = () => {
                   <Button
                     variant="contained"
                     startIcon={<Add />}
-                    onClick={() =>
-                      setShowNoteEditor(true)
-                    }
+                    onClick={() => setShowNoteEditor(true)}
                   >
                     Add Note
                   </Button>
@@ -1877,7 +1841,9 @@ const ReactBasics = () => {
 
               <Divider />
 
-              {/* NOTE EDITOR */}
+              {/* =================================================
+            NOTE EDITOR
+        ================================================= */}
 
               <Collapse in={showNoteEditor}>
                 <Box sx={{ mt: 3 }}>
@@ -1887,62 +1853,53 @@ const ReactBasics = () => {
                     minRows={5}
                     placeholder="Write your personal React note..."
                     value={noteText}
-                    onChange={e =>
-                      setNoteText(e.target.value)
-                    }
+                    onChange={(e) => setNoteText(e.target.value)}
                   />
 
                   <Stack
                     direction="row"
                     spacing={1}
                     justifyContent="flex-end"
-                    sx={{ mt: 2 }}
+                    sx={{
+                      mt: 2,
+                    }}
                   >
-                    <Button
-                      variant="outlined"
-                      onClick={
-                        handleCancelNote
-                      }
-                    >
+                    <Button variant="outlined" onClick={handleCancelNote}>
                       Cancel
                     </Button>
 
-                    <Button
-                      variant="contained"
-                      onClick={
-                        handleSaveNote
-                      }
-                    >
-                      {editingNoteId
-                        ? "Update Note"
-                        : "Save Note"}
+                    <Button variant="contained" onClick={handleSaveNote}>
+                      {editingNoteId ? "Update Note" : "Save Note"}
                     </Button>
                   </Stack>
                 </Box>
               </Collapse>
 
-              {/* SAVED NOTES */}
+              {/* =================================================
+            SAVED NOTES
+        ================================================= */}
 
               {notes.length > 0 && (
                 <Box sx={{ mt: 3 }}>
                   <Typography
                     variant="subtitle1"
                     fontWeight={700}
-                    sx={{ mb: 1.5 }}
+                    sx={{
+                      mb: 1.5,
+                    }}
                   >
                     Saved Notes
                   </Typography>
 
                   <Stack spacing={1.5}>
-                    {notes.map(note => (
+                    {notes.map((note) => (
                       <Paper
                         key={note.id}
                         elevation={0}
                         sx={{
                           p: 2,
                           border: "1px solid",
-                          borderColor:
-                            "divider",
+                          borderColor: "divider",
                           borderRadius: 2,
                         }}
                       >
@@ -1952,34 +1909,32 @@ const ReactBasics = () => {
                           alignItems="flex-start"
                           spacing={2}
                         >
+                          {/* NOTE TEXT */}
+
                           <Box
                             sx={{
                               flex: 1,
+                              minWidth: 0,
                             }}
                           >
                             <Typography
                               sx={{
-                                whiteSpace:
-                                  "pre-line",
+                                whiteSpace: "pre-line",
                                 lineHeight: 1.7,
+                                wordBreak: "break-word",
                               }}
                             >
                               • {note.text}
                             </Typography>
                           </Box>
 
-                          <Stack
-                            direction="row"
-                            spacing={0.5}
-                          >
+                          {/* EDIT + DELETE */}
+
+                          <Stack direction="row" spacing={0.5}>
                             <IconButton
                               size="small"
                               color="primary"
-                              onClick={() =>
-                                handleEditNote(
-                                  note
-                                )
-                              }
+                              onClick={() => handleEditNote(note)}
                             >
                               <Edit fontSize="small" />
                             </IconButton>
@@ -1987,11 +1942,7 @@ const ReactBasics = () => {
                             <IconButton
                               size="small"
                               color="error"
-                              onClick={() =>
-                                handleDeleteNote(
-                                  note.id
-                                )
-                              }
+                              onClick={() => handleDeleteNote(note.id)}
                             >
                               <Delete fontSize="small" />
                             </IconButton>
@@ -2003,34 +1954,37 @@ const ReactBasics = () => {
                 </Box>
               )}
 
-              {notes.length === 0 &&
-                !showNoteEditor && (
-                  <Box
+              {/* =================================================
+            NO NOTES
+        ================================================= */}
+
+              {notes.length === 0 && !showNoteEditor && (
+                <Box
+                  sx={{
+                    py: 4,
+                    textAlign: "center",
+                  }}
+                >
+                  <Typography color="text.secondary">
+                    No personal notes added yet.
+                  </Typography>
+
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
                     sx={{
-                      py: 4,
-                      textAlign: "center",
+                      mt: 0.5,
                     }}
                   >
-                    <Typography
-                      color="text.secondary"
-                    >
-                      No personal notes added yet.
-                    </Typography>
-
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      sx={{ mt: 0.5 }}
-                    >
-                      Click "Add Note" to add
-                      your own notes.
-                    </Typography>
-                  </Box>
-                )}
+                    Click "Add Note" to add your own notes.
+                  </Typography>
+                </Box>
+              )}
             </CardContent>
           </Card>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
+      ```
     </Box>
   );
 };
