@@ -83,6 +83,15 @@ const AppRoutes = () => {
           </Layout>
         }
       />
+      {/* for dashboard */}
+      <Route
+        path="/dashboard"
+        element={
+          <Layout>
+            <Dashboard />
+          </Layout>
+        }
+      />
     </Routes>
   );
 };

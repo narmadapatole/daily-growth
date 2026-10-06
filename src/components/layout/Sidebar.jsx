@@ -24,6 +24,7 @@ import {
   Typography,
   IconButton,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 250;
 
@@ -78,14 +79,14 @@ const bottomItems = [
 ];
 
 const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
+  const navigate = useNavigate();
   const drawerContent = (
     <Box
       sx={{
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        background:
-          "linear-gradient(180deg, #071D3A 0%, #06172E 100%)",
+        background: "linear-gradient(180deg, #071D3A 0%, #06172E 100%)",
         color: "#fff",
       }}
     >
@@ -144,27 +145,35 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
       <List sx={{ px: 1.5 }}>
         {menuItems.map((item, index) => (
           <ListItemButton
+            onClick={() => {
+              if (item.label === "Dashboard") {
+                navigate("/");
+              } else if (item.label ==="Dashboard") {
+                navigate("/");
+              }
+
+              if (item.label === "Study") {
+                navigate("/javascript-notes");
+              }
+
+              handleDrawerToggle();
+            }}
             key={item.label}
             sx={{
               minHeight: 45,
               mb: 0.5,
               borderRadius: 2,
 
-              backgroundColor:
-                index === 0
-                  ? "#1769E8"
-                  : "transparent",
+              backgroundColor: index === 0 ? "#1769E8" : "transparent",
 
               color: "#fff",
 
               "&:hover": {
                 backgroundColor:
-                  index === 0
-                    ? "#1769E8"
-                    : "rgba(255,255,255,0.08)",
+                  index === 0 ? "#1769E8" : "rgba(255,255,255,0.08)",
               },
             }}
-            onClick={handleDrawerToggle}
+            // onClick={handleDrawerToggle}
           >
             <ListItemIcon
               sx={{
@@ -179,8 +188,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
               primary={item.label}
               primaryTypographyProps={{
                 fontSize: 14,
-                fontWeight:
-                  index === 0 ? 600 : 500,
+                fontWeight: index === 0 ? 600 : 500,
               }}
             />
           </ListItemButton>
@@ -200,8 +208,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
                 color: "#fff",
 
                 "&:hover": {
-                  backgroundColor:
-                    "rgba(255,255,255,0.08)",
+                  backgroundColor: "rgba(255,255,255,0.08)",
                 },
               }}
               onClick={handleDrawerToggle}
@@ -235,8 +242,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
             minHeight: 145,
             borderRadius: 3,
 
-            background:
-              "linear-gradient(145deg, #293BA8, #1D2B86)",
+            background: "linear-gradient(145deg, #293BA8, #1D2B86)",
 
             position: "relative",
             overflow: "hidden",
@@ -275,8 +281,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
               color: "#E4E9FF",
             }}
           >
-            Every day is a chance to grow
-            better.
+            Every day is a chance to grow better.
           </Typography>
 
           <Typography
