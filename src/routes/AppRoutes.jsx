@@ -4,6 +4,9 @@ import Dashboard from "../pages/Dashboard";
 import ProjectHosting from "../pages/ProjectHosting";
 import ReactNotes from "../react/pages/ReactNotes";
 import ReactBasics from "../react/pages/ReactBasics";
+import JavaScriptBasics from "../pages/javascript/pagees/JavaScriptBasics";
+import JavascriptNotes from "../pages/javascript/pagees/JavaScriptNotes";
+import JavaScriptCodes from "../pages/javascript/pagees/JavaScriptCodes";
 
 // import Layout from "../components/Layout";
 // import Dashboard from "../pages/Dashboard";
@@ -31,13 +34,57 @@ const AppRoutes = () => {
       />
 
       {/* for React Notes */}
-  <Route path="/react-notes" element={ <Layout> <ReactNotes /> </Layout> } />
-  {/* for React Basics */}
-  <Route path="/react-basics" element={ <Layout> <ReactBasics/> </Layout> } />
+      <Route
+        path="/react-notes"
+        element={
+          <Layout>
+            {" "}
+            <ReactNotes />{" "}
+          </Layout>
+        }
+      />
+      {/* for React Basics */}
+      <Route
+        path="/react-basics"
+        element={
+          <Layout>
+            {" "}
+            <ReactBasics />{" "}
+          </Layout>
+        }
+      />
+      {/* for JavaScript Notes */}
+      <Route
+        path="/javascript-notes"
+        element={
+          <Layout>
+            {" "}
+            <JavascriptNotes />{" "}
+          </Layout>
+        }
+      />
 
-
+      {/* for JavaScript Basics */}
+      <Route
+        path="/javascript-basics"
+        element={
+          <Layout>
+            {" "}
+            <JavaScriptBasics />{" "}
+          </Layout>
+        }
+      />
+      {/* for JavaScript Code  */}
+      <Route
+        path="/javascript-codes"
+        element={
+          <Layout>
+            <JavaScriptCodes />
+          </Layout>
+        }
+      />
     </Routes>
   );
 };
 
-export default AppRoutes; 
+export default AppRoutes;

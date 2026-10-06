@@ -254,6 +254,10 @@ const StudyTimeModal = ({ open, onClose }) => {
                 else if(topic.title === "React") {
                   onClose();
                   navigate("/react-notes");
+                } 
+                else if(topic.title === "JavaScript") {
+                  onClose();
+                  navigate("/javascript-notes");
                 }
               }}
 

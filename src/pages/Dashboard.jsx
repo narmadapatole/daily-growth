@@ -25,10 +25,9 @@ import {
 import StudyTimeModal from "../components/study/studyTimeModal";
 import { useNavigate } from "react-router-dom";
 
-
 const Dashboard = () => {
   const [studyModalOpen, setStudyModalOpen] = useState(false);
-// const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // Cards Content Data
   const stats = [
@@ -130,20 +129,14 @@ const Dashboard = () => {
             fontSize: 15,
           }}
         >
-      Ready to grow today?
+          Ready to grow today?
         </Typography>
       </Box>
 
       {/*Cards */}
       <Grid container spacing={2.5}>
         {stats.map((item) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            lg={3}
-            key={item.title}
-          >
+          <Grid item xs={12} sm={6} lg={3} key={item.title}>
             <Card
               onClick={() => {
                 if (item.clickable) {
@@ -161,8 +154,7 @@ const Dashboard = () => {
                 "&:hover": item.clickable
                   ? {
                       transform: "translateY(-3px)",
-                      boxShadow:
-                        "0 8px 22px rgba(20, 40, 80, 0.10)",
+                      boxShadow: "0 8px 22px rgba(20, 40, 80, 0.10)",
                     }
                   : {},
               }}
@@ -253,11 +245,7 @@ const Dashboard = () => {
       </Grid>
 
       {/* Midd Section */}
-      <Grid
-        container
-        spacing={2.5}
-        sx={{ mt: 0.2 }}
-      >
+      <Grid container spacing={2.5} sx={{ mt: 0.2 }}>
         {/* Today's Goals */}
         <Grid item xs={12} md={6}>
           <Card
@@ -265,8 +253,7 @@ const Dashboard = () => {
               height: "100%",
               borderRadius: 3,
               border: "1px solid #E8ECF2",
-              boxShadow:
-                "0 3px 12px rgba(20, 40, 80, 0.05)",
+              boxShadow: "0 3px 12px rgba(20, 40, 80, 0.05)",
             }}
           >
             <CardContent sx={{ p: 2.5 }}>
@@ -320,19 +307,13 @@ const Dashboard = () => {
                       alignItems: "center",
                       p: 1,
                       borderRadius: 2,
-                      backgroundColor: goal.completed
-                        ? "#F5FBF8"
-                        : "#F8F9FC",
+                      backgroundColor: goal.completed ? "#F5FBF8" : "#F8F9FC",
                     }}
                   >
                     <Checkbox
                       checked={goal.completed}
                       disabled
-                      icon={
-                        <RadioButtonUnchecked
-                          sx={{ fontSize: 21 }}
-                        />
-                      }
+                      icon={<RadioButtonUnchecked sx={{ fontSize: 21 }} />}
                       checkedIcon={
                         <CheckCircle
                           sx={{
@@ -346,9 +327,7 @@ const Dashboard = () => {
                     <Typography
                       sx={{
                         fontSize: 14,
-                        color: goal.completed
-                          ? "#607080"
-                          : "#17233C",
+                        color: goal.completed ? "#607080" : "#17233C",
                         textDecoration: goal.completed
                           ? "line-through"
                           : "none",
@@ -371,8 +350,7 @@ const Dashboard = () => {
               height: "100%",
               borderRadius: 3,
               border: "1px solid #E8ECF2",
-              boxShadow:
-                "0 3px 12px rgba(20, 40, 80, 0.05)",
+              boxShadow: "0 3px 12px rgba(20, 40, 80, 0.05)",
             }}
           >
             <CardContent sx={{ p: 2.5 }}>
@@ -406,22 +384,18 @@ const Dashboard = () => {
                     gap: 1,
                   }}
                 >
-                  {[55, 72, 45, 85, 65, 90, 75].map(
-                    (value, index) => (
-                      <Box
-                        key={index}
-                        sx={{
-                          flex: 1,
-                          height: `${value}%`,
-                          maxWidth: 42,
-                          borderRadius:
-                            "6px 6px 2px 2px",
-                          background:
-                            "linear-gradient(180deg, #1769E8, #67A1FF)",
-                        }}
-                      />
-                    )
-                  )}
+                  {[55, 72, 45, 85, 65, 90, 75].map((value, index) => (
+                    <Box
+                      key={index}
+                      sx={{
+                        flex: 1,
+                        height: `${value}%`,
+                        maxWidth: 42,
+                        borderRadius: "6px 6px 2px 2px",
+                        background: "linear-gradient(180deg, #1769E8, #67A1FF)",
+                      }}
+                    />
+                  ))}
                 </Box>
 
                 <Box
@@ -431,25 +405,19 @@ const Dashboard = () => {
                     mt: 1,
                   }}
                 >
-                  {[
-                    "Mon",
-                    "Tue",
-                    "Wed",
-                    "Thu",
-                    "Fri",
-                    "Sat",
-                    "Sun",
-                  ].map((day) => (
-                    <Typography
-                      key={day}
-                      sx={{
-                        fontSize: 11,
-                        color: "#8A95A5",
-                      }}
-                    >
-                      {day}
-                    </Typography>
-                  ))}
+                  {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(
+                    (day) => (
+                      <Typography
+                        key={day}
+                        sx={{
+                          fontSize: 11,
+                          color: "#8A95A5",
+                        }}
+                      >
+                        {day}
+                      </Typography>
+                    ),
+                  )}
                 </Box>
               </Box>
             </CardContent>
@@ -458,19 +426,14 @@ const Dashboard = () => {
       </Grid>
 
       {/* Bottom Section */}
-      <Grid
-        container
-        spacing={2.5}
-        sx={{ mt: 0.2 }}
-      >
+      <Grid container spacing={2.5} sx={{ mt: 0.2 }}>
         {/* Recent Notes */}
         <Grid item xs={12} md={6}>
           <Card
             sx={{
               borderRadius: 3,
               border: "1px solid #E8ECF2",
-              boxShadow:
-                "0 3px 12px rgba(20, 40, 80, 0.05)",
+              boxShadow: "0 3px 12px rgba(20, 40, 80, 0.05)",
             }}
           >
             <CardContent sx={{ p: 2.5 }}>
@@ -537,8 +500,7 @@ const Dashboard = () => {
             sx={{
               borderRadius: 3,
               border: "1px solid #E8ECF2",
-              boxShadow:
-                "0 3px 12px rgba(20, 40, 80, 0.05)",
+              boxShadow: "0 3px 12px rgba(20, 40, 80, 0.05)",
             }}
           >
             <CardContent sx={{ p: 2.5 }}>
