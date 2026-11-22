@@ -7,6 +7,7 @@ import ReactBasics from "../react/pages/ReactBasics";
 import JavaScriptBasics from "../pages/javascript/pagees/JavaScriptBasics";
 import JavascriptNotes from "../pages/javascript/pagees/JavaScriptNotes";
 import JavaScriptCodes from "../pages/javascript/pagees/JavaScriptCodes";
+import JavaScriptPlayGround from "../pages/javascript/pagees/JavaScriptPlayGround";
 
 // import Layout from "../components/Layout";
 // import Dashboard from "../pages/Dashboard";
@@ -83,6 +84,16 @@ const AppRoutes = () => {
           </Layout>
         }
       />
+      {/* javaScript playground */}
+      <Route
+      path="javascript-playground"
+      element={
+        <Layout>
+          <JavaScriptPlayGround/>
+        </Layout>
+      }
+      />
+      
       {/* for dashboard */}
       <Route
         path="/dashboard"

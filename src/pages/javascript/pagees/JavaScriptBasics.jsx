@@ -194,9 +194,19 @@ const JavaScriptBasics = () => {
     {
       title: "22. Closure",
       notes: [
-        "A closure is created when a function remembers variables from its outer lexical environment.",
-        "Closures allow inner functions to access variables from their outer functions even after the outer function has finished execution.",
-        "Closures are useful for data hiding, callbacks and maintaining state.",
+        // "A closure is created when a function remembers variables from its outer lexical environment.",
+        // "Closures allow inner functions to access variables from their outer functions even after the outer function has finished execution.",
+        // "Closures are useful for data hiding, callbacks and maintaining state.",
+        "A closure is cretaed when a function remembers & accesses variables from its outer (Parent) scope even after the outer function has finished executing.",
+        "function outer() { let message = Hello Developer;",
+       " function inner() {",
+        "  console.log(message);",
+      "  }",
+      "  return inner;",
+     " }",
+     " const result = outer();",
+      "result(); // Output: Hello Developer",
+       " } "
       ],
     },
     {
@@ -230,14 +240,33 @@ const JavaScriptBasics = () => {
         "Functions can be assigned to variables.",
         "Functions can be passed as arguments.",
         "Functions can be returned from other functions.",
+       
+
+
       ],
     },
     {
       title: "27. Callback Function",
       notes: [
-        "A callback is a function passed as an argument to another function.",
+        "A callback is a function passed as an argument to another function & execute later",
         "The receiving function can execute the callback later.",
         "Callbacks are commonly used for asynchronous operations and event handling.",
+         "function greet(name,callback){",
+        "console.log(hello,name)",
+        "callback();",
+        "}",
+        "function bye(){",
+        "console.log(good bye)",
+        "}",
+        "gret (Anil,bye)",
+        "2) . Inline function",
+        "greet (ANil, function (){",
+        "console.log(Good Bye)",
+        "})",
+
+       " 3. setTimeout( () =>{",
+          "console.log(Hello);",
+        "},2000);"
       ],
     },
     {
@@ -246,6 +275,7 @@ const JavaScriptBasics = () => {
         "The Event Loop helps JavaScript handle asynchronous operations.",
         "It continuously checks whether the call stack is empty.",
         "When appropriate, queued callbacks can be moved to the call stack for execution.",
+        
       ],
     },
     {

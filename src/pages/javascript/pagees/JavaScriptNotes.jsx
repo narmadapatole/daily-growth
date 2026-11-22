@@ -14,6 +14,16 @@ const javascriptTopics = [
     description: "See JavaScript in action with practical examples",
     time: "1h 30m",
   },
+   {
+    id: 3,
+    title: "JavaScript Playground",
+    description: "Write, run, and save your JavaScript programs",
+    time: "Practice anytime",
+    background: "#FFF0DB",
+    iconColor: "#D97706",
+    icon: "🚀",
+    path: "/javascript-playground",
+  },
 ];
 const JavascriptNotes = () => {
     const navigate = useNavigate();
@@ -48,6 +58,8 @@ const JavascriptNotes = () => {
                       navigate("/javascript-basics");
                     } else if (topic.title === "JavaScript Examples") {
                       navigate("/javascript-codes");
+                    } else if(topic.title==="JavaScript Playground"){
+                      navigate("/javascript-playground")
                     }
                   }}
                 >

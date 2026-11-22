@@ -28,20 +28,12 @@ const JavaScriptCodes = () => {
               🟨 JavaScript Codes
             </Typography>
 
-            <Chip
-              label="Coding Practice"
-              size="small"
-              color="primary"
-            />
+            <Chip label="Coding Practice" size="small" color="primary" />
           </Stack>
 
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            sx={{ mt: 1 }}
-          >
-            JavaScript coding programs, interview questions,
-            array methods, functions and practical examples.
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+            JavaScript coding programs, interview questions, array methods,
+            functions and practical examples.
           </Typography>
         </CardContent>
       </Card>
@@ -60,7 +52,7 @@ const JavaScriptCodes = () => {
         </SectionTitle>
 
         <CodeBlock>
-{`const findUniqueValues = (arr) => [...new Set(arr)];
+          {`const findUniqueValues = (arr) => [...new Set(arr)];
 
 console.log(
   findUniqueValues([1, 2, 2, 3, 4, 4, 5])
@@ -73,22 +65,19 @@ console.log(
           <b>Explanation:</b>
           <br />
           <br />
-          <b>new Set(arr)</b> removes duplicates because a Set
-          only stores unique values.
+          <b>new Set(arr)</b> removes duplicates because a Set only stores
+          unique values.
           <br />
           <br />
-          <b>[...new Set(arr)]</b> converts the Set back into
-          an array.
+          <b>[...new Set(arr)]</b> converts the Set back into an array.
         </Explanation>
 
         <Divider sx={{ my: 3 }} />
 
-        <SectionTitle>
-          Method 2: Using filter()
-        </SectionTitle>
+        <SectionTitle>Method 2: Using filter()</SectionTitle>
 
         <CodeBlock>
-{`const findUniqueValues = (arr) =>
+          {`const findUniqueValues = (arr) =>
   arr.filter(
     (value, index, self) =>
       self.indexOf(value) === index
@@ -106,7 +95,7 @@ console.log(
         </Typography>
 
         <CodeBlock>
-{`const uniqueValues = arr.filter(
+          {`const uniqueValues = arr.filter(
   (value, index, self) =>
     self.indexOf(value) === index
 );`}
@@ -117,7 +106,7 @@ console.log(
         </Typography>
 
         <CodeBlock>
-{`const uniqueValues = arr.filter(
+          {`const uniqueValues = arr.filter(
   (value, index, array) => {
     return array.indexOf(value) === index;
   }
@@ -126,17 +115,15 @@ console.log(
 
         <Divider sx={{ my: 3 }} />
 
-        <SectionTitle>
-          Method 3: Using reduce()
-        </SectionTitle>
+        <SectionTitle>Method 3: Using reduce()</SectionTitle>
 
         <Explanation>
-          <b>includes()</b> is an array method used to check
-          whether a specific value exists in an array.
+          <b>includes()</b> is an array method used to check whether a specific
+          value exists in an array.
         </Explanation>
 
         <CodeBlock>
-{`const findUniqueValues = (arr) =>
+          {`const findUniqueValues = (arr) =>
   arr.reduce(
     (acc, curr) =>
       acc.includes(curr)
@@ -157,7 +144,7 @@ console.log(
         </Typography>
 
         <CodeBlock>
-{`const reduceValue = arr.reduce(
+          {`const reduceValue = arr.reduce(
   (acc, value, index, array) => {
     return acc.includes(value)
       ? acc
@@ -169,12 +156,10 @@ console.log(
 
         <Divider sx={{ my: 3 }} />
 
-        <SectionTitle>
-          Method 4: Using an Array with includes()
-        </SectionTitle>
+        <SectionTitle>Method 4: Using an Array with includes()</SectionTitle>
 
         <CodeBlock>
-{`const findUniqueValues = (arr) => {
+          {`const findUniqueValues = (arr) => {
   const unique = [];
 
   arr.forEach((value) => {
@@ -204,7 +189,7 @@ console.log(
         description="Print Fizz, Buzz or FizzBuzz based on multiples of 3 and 5."
       >
         <CodeBlock>
-{`const fizzBuzz = (num) => {
+          {`const fizzBuzz = (num) => {
   for (let i = 1; i <= num; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
       console.log("FizzBuzz");
@@ -235,7 +220,7 @@ fizzBuzz(11);`}
         </Explanation>
 
         <OutputBlock>
-{`1
+          {`1
 2
 Fizz
 4
@@ -259,8 +244,8 @@ Buzz
         description="Convert a multi-dimensional array into a single-dimensional array."
       >
         <Explanation>
-          <b>Flattening an array</b> means converting a multi-dimensional
-          array into a single-dimensional array.
+          <b>Flattening an array</b> means converting a multi-dimensional array
+          into a single-dimensional array.
           <br />
           <br />
           Example:
@@ -271,12 +256,10 @@ Buzz
           <b>Flattened:</b> [1, 2, 3, 4, 5, 6]
         </Explanation>
 
-        <SectionTitle>
-          Method 1: Using flat()
-        </SectionTitle>
+        <SectionTitle>Method 1: Using flat()</SectionTitle>
 
         <CodeBlock>
-{`let nestedArray = [1, [2, 3], [4, 5], 6];
+          {`let nestedArray = [1, [2, 3], [4, 5], 6];
 
 let flattenedArray = nestedArray.flat();
 
@@ -291,7 +274,7 @@ console.log(flattenedArray);
         </Explanation>
 
         <CodeBlock>
-{`let deeplyNestedArray = [1, [2, [3, [4]]]];
+          {`let deeplyNestedArray = [1, [2, [3, [4]]]];
 
 let flatArray = deeplyNestedArray.flat(3);
 
@@ -301,12 +284,10 @@ console.log(flatArray);
 // [1, 2, 3, 4]`}
         </CodeBlock>
 
-        <SectionTitle>
-          Method 2: Using flat(Infinity)
-        </SectionTitle>
+        <SectionTitle>Method 2: Using flat(Infinity)</SectionTitle>
 
         <CodeBlock>
-{`let deeplyNestedArray = [1, [2, [3, [4]]]];
+          {`let deeplyNestedArray = [1, [2, [3, [4]]]];
 
 let flatArray = deeplyNestedArray.flat(Infinity);
 
@@ -316,12 +297,10 @@ console.log(flatArray);
 // [1, 2, 3, 4]`}
         </CodeBlock>
 
-        <SectionTitle>
-          Method 3: Recursive Function
-        </SectionTitle>
+        <SectionTitle>Method 3: Recursive Function</SectionTitle>
 
         <CodeBlock>
-{`const flattenArray = (arr) => {
+          {`const flattenArray = (arr) => {
   return arr.reduce((acc, val) => {
     return acc.concat(
       Array.isArray(val)
@@ -343,12 +322,10 @@ console.log(flattenArray(nestedArray));
 // [1, 2, 3, 4, 5, 6]`}
         </CodeBlock>
 
-        <SectionTitle>
-          Method 4: Using reduce()
-        </SectionTitle>
+        <SectionTitle>Method 4: Using reduce()</SectionTitle>
 
         <CodeBlock>
-{`const reduceArray = (nestedArray) => {
+          {`const reduceArray = (nestedArray) => {
   return nestedArray.reduce((acc, value) => {
     return acc.concat(value);
   }, []);
@@ -373,7 +350,7 @@ console.log(
         description="Convert nested object properties into a single-level object."
       >
         <CodeBlock>
-{`const myDetails = {
+          {`const myDetails = {
   name: "sachin",
   place: "karad",
 
@@ -413,7 +390,7 @@ console.log(mergeObject(myDetails));`}
         </CodeBlock>
 
         <OutputBlock>
-{`{
+          {`{
   name: "sachin",
   place: "karad",
   edu: "MCA",
@@ -433,13 +410,13 @@ console.log(mergeObject(myDetails));`}
         description="Transform a function into a sequence of functions, each taking one argument."
       >
         <Explanation>
-          <b>Currying</b> is a functional programming technique
-          where a function is transformed into a sequence of
-          functions, each taking a single argument.
+          <b>Currying</b> is a functional programming technique where a function
+          is transformed into a sequence of functions, each taking a single
+          argument.
         </Explanation>
 
         <CodeBlock>
-{`const add = (input1) => {
+          {`const add = (input1) => {
   return (input2) => {
     if (input2) {
       return add(input1 + input2);
@@ -472,12 +449,10 @@ console.log(
           5. Empty () ends the chain and returns the result.
         </Explanation>
 
-        <SectionTitle>
-          Simple Currying Example
-        </SectionTitle>
+        <SectionTitle>Simple Currying Example</SectionTitle>
 
         <CodeBlock>
-{`function add(a) {
+          {`function add(a) {
   return function(b) {
     return a + b;
   };
@@ -501,12 +476,10 @@ console.log(addTwo(3));
         title="Largest Number and Smallest Number"
         description="Find the maximum and minimum number from an array."
       >
-        <SectionTitle>
-          Largest Number
-        </SectionTitle>
+        <SectionTitle>Largest Number</SectionTitle>
 
         <CodeBlock>
-{`const num = [
+          {`const num = [
   12,
   3,
   5,
@@ -528,12 +501,10 @@ console.log(maxNum);
 // 3332`}
         </CodeBlock>
 
-        <SectionTitle>
-          Largest Number Using Loop
-        </SectionTitle>
+        <SectionTitle>Largest Number Using Loop</SectionTitle>
 
         <CodeBlock>
-{`let maxNum = num[0];
+          {`let maxNum = num[0];
 
 for (let i = 1; i < num.length; i++) {
   if (num[i] > maxNum) {
@@ -547,12 +518,10 @@ console.log(maxNum);
 // 3332`}
         </CodeBlock>
 
-        <SectionTitle>
-          Smallest Number
-        </SectionTitle>
+        <SectionTitle>Smallest Number</SectionTitle>
 
         <CodeBlock>
-{`let minNum = num[0];
+          {`let minNum = num[0];
 
 for (let i = 1; i < num.length; i++) {
   if (num[i] < minNum) {
@@ -577,7 +546,7 @@ console.log(minNum);
         description="Merge two already sorted arrays into one sorted array."
       >
         <CodeBlock>
-{`const Array1 = [1, 3, 5, 7, 9];
+          {`const Array1 = [1, 3, 5, 7, 9];
 
 const Array2 = [2, 4, 6, 8, 10];
 
@@ -632,7 +601,7 @@ console.log(
         description="Check whether a number reads the same forward and backward."
       >
         <CodeBlock>
-{`let num = prompt(
+          {`let num = prompt(
   "Enter a number to check if it is a palindrome:"
 );
 
@@ -668,12 +637,10 @@ if (newNum === str) {
         title="Sort Array"
         description="Different ways to sort numbers, strings and objects."
       >
-        <SectionTitle>
-          1. Ascending Order
-        </SectionTitle>
+        <SectionTitle>1. Ascending Order</SectionTitle>
 
         <CodeBlock>
-{`const tempArray = [
+          {`const tempArray = [
   4321,
   321,
   34,
@@ -695,12 +662,10 @@ console.log(sortArray(tempArray));
 // [34, 45, 76, 321, 4321]`}
         </CodeBlock>
 
-        <SectionTitle>
-          2. Descending Order
-        </SectionTitle>
+        <SectionTitle>2. Descending Order</SectionTitle>
 
         <CodeBlock>
-{`let numbers = [4, 2, 9, 1, 5];
+          {`let numbers = [4, 2, 9, 1, 5];
 
 numbers.sort((a, b) => b - a);
 
@@ -710,12 +675,10 @@ console.log(numbers);
 // [9, 5, 4, 2, 1]`}
         </CodeBlock>
 
-        <SectionTitle>
-          3. Sorting Strings Alphabetically
-        </SectionTitle>
+        <SectionTitle>3. Sorting Strings Alphabetically</SectionTitle>
 
         <CodeBlock>
-{`let fruits = [
+          {`let fruits = [
   "banana",
   "apple",
   "cherry",
@@ -730,12 +693,10 @@ console.log(fruits);
 // ["apple", "banana", "cherry", "date"]`}
         </CodeBlock>
 
-        <SectionTitle>
-          4. Case-Insensitive Sorting
-        </SectionTitle>
+        <SectionTitle>4. Case-Insensitive Sorting</SectionTitle>
 
         <CodeBlock>
-{`let fruits = [
+          {`let fruits = [
   "banana",
   "Apple",
   "cherry",
@@ -757,12 +718,10 @@ console.log(fruits);
 // ["Apple", "banana", "cherry", "Date"]`}
         </CodeBlock>
 
-        <SectionTitle>
-          5. Sort Objects by Age
-        </SectionTitle>
+        <SectionTitle>5. Sort Objects by Age</SectionTitle>
 
         <CodeBlock>
-{`let people = [
+          {`let people = [
   { name: "John", age: 30 },
   { name: "Alice", age: 25 },
   { name: "Bob", age: 35 }
@@ -775,12 +734,10 @@ people.sort(
 console.log(people);`}
         </CodeBlock>
 
-        <SectionTitle>
-          6. Sort Objects by Name
-        </SectionTitle>
+        <SectionTitle>6. Sort Objects by Name</SectionTitle>
 
         <CodeBlock>
-{`people.sort(
+          {`people.sort(
   (a, b) =>
     a.name.localeCompare(b.name)
 );
@@ -788,12 +745,10 @@ console.log(people);`}
 console.log(people);`}
         </CodeBlock>
 
-        <SectionTitle>
-          7. Sort Strings by Length
-        </SectionTitle>
+        <SectionTitle>7. Sort Strings by Length</SectionTitle>
 
         <CodeBlock>
-{`let words = [
+          {`let words = [
   "dog",
   "elephant",
   "bat"
@@ -820,7 +775,7 @@ console.log(words);
         description="Check whether an array contains a value, find its index and count occurrences."
       >
         <CodeBlock>
-{`const num = [
+          {`const num = [
   23423,
   4,
   56,
@@ -834,34 +789,28 @@ console.log(words);
 ];`}
         </CodeBlock>
 
-        <SectionTitle>
-          1. Check if Array Contains a Value
-        </SectionTitle>
+        <SectionTitle>1. Check if Array Contains a Value</SectionTitle>
 
         <CodeBlock>
-{`console.log(num.includes(4));
+          {`console.log(num.includes(4));
 
 // Output:
 // true`}
         </CodeBlock>
 
-        <SectionTitle>
-          2. Find Index of Value
-        </SectionTitle>
+        <SectionTitle>2. Find Index of Value</SectionTitle>
 
         <CodeBlock>
-{`console.log(num.indexOf(4));
+          {`console.log(num.indexOf(4));
 
 // Output:
 // 1`}
         </CodeBlock>
 
-        <SectionTitle>
-          3. Count How Many Times a Value Appears
-        </SectionTitle>
+        <SectionTitle>3. Count How Many Times a Value Appears</SectionTitle>
 
         <CodeBlock>
-{`const count = num.filter(
+          {`const count = num.filter(
   n => n === 4
 ).length;
 
@@ -871,12 +820,10 @@ console.log(count);
 // 2`}
         </CodeBlock>
 
-        <SectionTitle>
-          4. Check if Any Value Meets a Condition
-        </SectionTitle>
+        <SectionTitle>4. Check if Any Value Meets a Condition</SectionTitle>
 
         <CodeBlock>
-{`const hasLargeNumber = num.some(
+          {`const hasLargeNumber = num.some(
   n => n > 1000
 );
 
@@ -897,8 +844,8 @@ console.log(hasLargeNumber);
         description="Understand truthy and falsy values using Boolean()."
       >
         <Explanation>
-          In JavaScript, values such as non-empty strings and
-          non-zero numbers are generally truthy.
+          In JavaScript, values such as non-empty strings and non-zero numbers
+          are generally truthy.
           <br />
           <br />
           Common falsy values include:
@@ -906,12 +853,10 @@ console.log(hasLargeNumber);
           <b>false, 0, "", null, undefined</b>
         </Explanation>
 
-        <SectionTitle>
-          1. Boolean true
-        </SectionTitle>
+        <SectionTitle>1. Boolean true</SectionTitle>
 
         <CodeBlock>
-{`let abc = true;
+          {`let abc = true;
 
 let xyz = Boolean(abc);
 
@@ -924,12 +869,10 @@ console.log(
 // true true`}
         </CodeBlock>
 
-        <SectionTitle>
-          2. Boolean false
-        </SectionTitle>
+        <SectionTitle>2. Boolean false</SectionTitle>
 
         <CodeBlock>
-{`let abc = false;
+          {`let abc = false;
 
 let xyz = Boolean(abc);
 
@@ -942,12 +885,10 @@ console.log(
 // false false`}
         </CodeBlock>
 
-        <SectionTitle>
-          3. String "true"
-        </SectionTitle>
+        <SectionTitle>3. String "true"</SectionTitle>
 
         <CodeBlock>
-{`let abc = "true";
+          {`let abc = "true";
 
 let xyz = Boolean(abc);
 
@@ -960,12 +901,10 @@ console.log(
 // true true`}
         </CodeBlock>
 
-        <SectionTitle>
-          4. String "false"
-        </SectionTitle>
+        <SectionTitle>4. String "false"</SectionTitle>
 
         <CodeBlock>
-{`let abc = "false";
+          {`let abc = "false";
 
 let xyz = Boolean(abc);
 
@@ -978,12 +917,10 @@ console.log(
 // false true`}
         </CodeBlock>
 
-        <SectionTitle>
-          5. Number 1
-        </SectionTitle>
+        <SectionTitle>5. Number 1</SectionTitle>
 
         <CodeBlock>
-{`let abc = 1;
+          {`let abc = 1;
 
 let xyz = Boolean(abc);
 
@@ -996,12 +933,10 @@ console.log(
 // 1 true`}
         </CodeBlock>
 
-        <SectionTitle>
-          6. Number 0
-        </SectionTitle>
+        <SectionTitle>6. Number 0</SectionTitle>
 
         <CodeBlock>
-{`let abc = 0;
+          {`let abc = 0;
 
 let xyz = Boolean(abc);
 
@@ -1014,12 +949,10 @@ console.log(
 // 0 false`}
         </CodeBlock>
 
-        <SectionTitle>
-          7. String "1"
-        </SectionTitle>
+        <SectionTitle>7. String "1"</SectionTitle>
 
         <CodeBlock>
-{`let abc = "1";
+          {`let abc = "1";
 
 let xyz = Boolean(abc);
 
@@ -1032,12 +965,10 @@ console.log(
 // "1" true`}
         </CodeBlock>
 
-        <SectionTitle>
-          8. String "0"
-        </SectionTitle>
+        <SectionTitle>8. String "0"</SectionTitle>
 
         <CodeBlock>
-{`let abc = "0";
+          {`let abc = "0";
 
 let xyz = Boolean(abc);
 
@@ -1050,12 +981,10 @@ console.log(
 // "0" true`}
         </CodeBlock>
 
-        <SectionTitle>
-          9. Non-empty String
-        </SectionTitle>
+        <SectionTitle>9. Non-empty String</SectionTitle>
 
         <CodeBlock>
-{`let abc = "32432";
+          {`let abc = "32432";
 
 let xyz = Boolean(abc);
 
@@ -1068,12 +997,10 @@ console.log(
 // "32432" true`}
         </CodeBlock>
 
-        <SectionTitle>
-          10. Empty String
-        </SectionTitle>
+        <SectionTitle>10. Empty String</SectionTitle>
 
         <CodeBlock>
-{`let abc = "";
+          {`let abc = "";
 
 let xyz = Boolean(abc);
 
@@ -1086,12 +1013,10 @@ console.log(
 // false`}
         </CodeBlock>
 
-        <SectionTitle>
-          11. Space String
-        </SectionTitle>
+        <SectionTitle>11. Space String</SectionTitle>
 
         <CodeBlock>
-{`let abc = " ";
+          {`let abc = " ";
 
 let xyz = Boolean(abc);
 
@@ -1104,12 +1029,10 @@ console.log(
 // true`}
         </CodeBlock>
 
-        <SectionTitle>
-          12. null
-        </SectionTitle>
+        <SectionTitle>12. null</SectionTitle>
 
         <CodeBlock>
-{`let abc = null;
+          {`let abc = null;
 
 let xyz = Boolean(abc);
 
@@ -1122,12 +1045,10 @@ console.log(
 // false`}
         </CodeBlock>
 
-        <SectionTitle>
-          13. undefined
-        </SectionTitle>
+        <SectionTitle>13. undefined</SectionTitle>
 
         <CodeBlock>
-{`let abc = undefined;
+          {`let abc = undefined;
 
 let xyz = Boolean(abc);
 
@@ -1140,12 +1061,10 @@ console.log(
 // false`}
         </CodeBlock>
 
-        <SectionTitle>
-          14. Number 5
-        </SectionTitle>
+        <SectionTitle>14. Number 5</SectionTitle>
 
         <CodeBlock>
-{`let abc = 5;
+          {`let abc = 5;
 
 let xyz = Boolean(abc);
 
@@ -1169,7 +1088,7 @@ console.log(
         description="Count how many times each value appears in an array."
       >
         <CodeBlock>
-{`const countRepeation = (arr) => {
+          {`const countRepeation = (arr) => {
   let newCountObj = arr.reduce(
     (acc, curr) => {
       if (!acc[curr]) {
@@ -1206,7 +1125,7 @@ console.log(
         </CodeBlock>
 
         <OutputBlock>
-{`{
+          {`{
   "1": 1,
   "2": 1,
   "3": 2,
@@ -1228,12 +1147,10 @@ console.log(
         title="Fibonacci"
         description="Generate Fibonacci numbers using loop, array and recursion."
       >
-        <SectionTitle>
-          Method 1: Using Loop
-        </SectionTitle>
+        <SectionTitle>Method 1: Using Loop</SectionTitle>
 
         <CodeBlock>
-{`const fibbo = () => {
+          {`const fibbo = () => {
   let a = 0;
   let b = 1;
 
@@ -1256,7 +1173,7 @@ fibbo();`}
         </CodeBlock>
 
         <OutputBlock>
-{`0
+          {`0
 1
 1
 2
@@ -1268,12 +1185,10 @@ fibbo();`}
 34`}
         </OutputBlock>
 
-        <SectionTitle>
-          Method 2: Store Fibonacci Numbers in Array
-        </SectionTitle>
+        <SectionTitle>Method 2: Store Fibonacci Numbers in Array</SectionTitle>
 
         <CodeBlock>
-{`const fibbo = () => {
+          {`const fibbo = () => {
   let a = 0;
   let b = 1;
 
@@ -1297,18 +1212,16 @@ fibbo();`}
         </CodeBlock>
 
         <OutputBlock>
-{`[
+          {`[
   0, 1, 1, 2, 3,
   5, 8, 13, 21, 34
 ]`}
         </OutputBlock>
 
-        <SectionTitle>
-          Method 3: Using Recursion
-        </SectionTitle>
+        <SectionTitle>Method 3: Using Recursion</SectionTitle>
 
         <CodeBlock>
-{`const fibbo = (n) => {
+          {`const fibbo = (n) => {
   if (n === 0) return 0;
 
   if (n === 1) return 1;
@@ -1322,7 +1235,7 @@ for (let i = 0; i < 10; i++) {
         </CodeBlock>
 
         <OutputBlock>
-{`0
+          {`0
 1
 1
 2
@@ -1345,7 +1258,7 @@ for (let i = 0; i < 10; i++) {
         description="Create a reusable function to check whether a number is a palindrome."
       >
         <CodeBlock>
-{`const isPalindrome = (num) => {
+          {`const isPalindrome = (num) => {
   const str = num.toString();
 
   const reversedStr = str
@@ -1380,9 +1293,9 @@ console.log(isPalindrome(10));
         description="Check whether a number is an Armstrong number."
       >
         <Explanation>
-          A number is an <b>Armstrong number</b> if the sum of
-          its digits, each raised to the power of the number of
-          digits, is equal to the number itself.
+          A number is an <b>Armstrong number</b> if the sum of its digits, each
+          raised to the power of the number of digits, is equal to the number
+          itself.
           <br />
           <br />
           Example:
@@ -1391,7 +1304,7 @@ console.log(isPalindrome(10));
         </Explanation>
 
         <CodeBlock>
-{`const armStrong = (num) => {
+          {`const armStrong = (num) => {
   let numToString = num.toString();
 
   let numLength = numToString.length;
@@ -1419,12 +1332,10 @@ console.log(isPalindrome(10));
 armStrong(153);`}
         </CodeBlock>
 
-        <SectionTitle>
-          Another Way
-        </SectionTitle>
+        <SectionTitle>Another Way</SectionTitle>
 
         <CodeBlock>
-{`const isArmstrong = (num) => {
+          {`const isArmstrong = (num) => {
   let numStr = num.toString();
 
   let numLength = numStr.length;
@@ -1476,23 +1387,18 @@ isArmstrong(154);
           map() is used to transform each element of an array.
           <br />
           <br />
-
           <b>2. filter()</b>
           <br />
-          filter() is used to keep only some elements based on
-          a condition.
+          filter() is used to keep only some elements based on a condition.
           <br />
           <br />
-
           <b>3. reduce()</b>
           <br />
-          reduce() is used to combine all elements into one value
-          such as sum, product, object, etc.
+          reduce() is used to combine all elements into one value such as sum,
+          product, object, etc.
         </Explanation>
 
-        <SectionTitle>
-          reduce() Callback Parameters
-        </SectionTitle>
+        <SectionTitle>reduce() Callback Parameters</SectionTitle>
 
         <Paper
           elevation={0}
@@ -1514,21 +1420,15 @@ isArmstrong(154);
             >
               <Box component="thead">
                 <Box component="tr">
-                  <TableCell>
-                    Parameter
-                  </TableCell>
+                  <TableCell>Parameter</TableCell>
 
-                  <TableCell>
-                    Meaning
-                  </TableCell>
+                  <TableCell>Meaning</TableCell>
                 </Box>
               </Box>
 
               <Box component="tbody">
                 <TableRow>
-                  <TableCell>
-                    accumulator (acc)
-                  </TableCell>
+                  <TableCell>accumulator (acc)</TableCell>
 
                   <TableCell>
                     The result you are building step-by-step
@@ -1536,33 +1436,21 @@ isArmstrong(154);
                 </TableRow>
 
                 <TableRow>
-                  <TableCell>
-                    currentValue
-                  </TableCell>
+                  <TableCell>currentValue</TableCell>
 
-                  <TableCell>
-                    Current element from the array
-                  </TableCell>
+                  <TableCell>Current element from the array</TableCell>
                 </TableRow>
 
                 <TableRow>
-                  <TableCell>
-                    index
-                  </TableCell>
+                  <TableCell>index</TableCell>
 
-                  <TableCell>
-                    Current index of the array
-                  </TableCell>
+                  <TableCell>Current index of the array</TableCell>
                 </TableRow>
 
                 <TableRow>
-                  <TableCell>
-                    array
-                  </TableCell>
+                  <TableCell>array</TableCell>
 
-                  <TableCell>
-                    Original array being reduced
-                  </TableCell>
+                  <TableCell>Original array being reduced</TableCell>
                 </TableRow>
               </Box>
             </Box>
@@ -1579,12 +1467,10 @@ isArmstrong(154);
         title="map() Examples"
         description="Different practical examples using map()."
       >
-        <SectionTitle>
-          1. Double Every Number
-        </SectionTitle>
+        <SectionTitle>1. Double Every Number</SectionTitle>
 
         <CodeBlock>
-{`const numbers = [
+          {`const numbers = [
   1,
   2,
   3,
@@ -1603,12 +1489,10 @@ console.log(newNumbers);
 // [2, 4, 6, 8, 10]`}
         </CodeBlock>
 
-        <SectionTitle>
-          2. Convert Numbers to Strings
-        </SectionTitle>
+        <SectionTitle>2. Convert Numbers to Strings</SectionTitle>
 
         <CodeBlock>
-{`const numbers = [
+          {`const numbers = [
   10,
   20,
   30
@@ -1626,12 +1510,10 @@ console.log(stringNumbers);
 // ["10", "20", "30"]`}
         </CodeBlock>
 
-        <SectionTitle>
-          3. Add Index to Each Element
-        </SectionTitle>
+        <SectionTitle>3. Add Index to Each Element</SectionTitle>
 
         <CodeBlock>
-{`const names = [
+          {`const names = [
   "Aman",
   "Riya",
   "John"
@@ -1649,12 +1531,10 @@ console.log(namesWithIndex);
 // ["1. Aman", "2. Riya", "3. John"]`}
         </CodeBlock>
 
-        <SectionTitle>
-          4. Get Only Names from Objects
-        </SectionTitle>
+        <SectionTitle>4. Get Only Names from Objects</SectionTitle>
 
         <CodeBlock>
-{`const users = [
+          {`const users = [
   {
     id: 1,
     name: "Rahul"
@@ -1692,7 +1572,7 @@ console.log(names);
         description="Get names of active employees whose salary is greater than 30000."
       >
         <CodeBlock>
-{`const employees = [
+          {`const employees = [
   {
     id: 1,
     name: "John",
@@ -1750,7 +1630,7 @@ console.log(
         description="Group and count users based on their city."
       >
         <CodeBlock>
-{`const users = [
+          {`const users = [
   {
     name: "John",
     city: "Pune"
@@ -1790,7 +1670,7 @@ console.log("count", count);`}
         </CodeBlock>
 
         <OutputBlock>
-{`{
+          {`{
   Pune: 2,
   Mumbai: 2,
   Delhi: 1
@@ -1808,7 +1688,7 @@ console.log("count", count);`}
         description="Use reduce() to separate students into passed and failed groups."
       >
         <CodeBlock>
-{`const students = [
+          {`const students = [
   {
     name: "John",
     marks: 80
@@ -1847,7 +1727,7 @@ console.log("result", result);`}
         </CodeBlock>
 
         <OutputBlock>
-{`{
+          {`{
   passed: [
     "John",
     "Sara",
@@ -1870,7 +1750,7 @@ console.log("result", result);`}
         description="Use reduce() to group employee names according to department."
       >
         <CodeBlock>
-{`const employees = [
+          {`const employees = [
   {
     name: "John",
     department: "IT"
@@ -1918,7 +1798,7 @@ console.log("dept", dept);`}
         </CodeBlock>
 
         <OutputBlock>
-{`{
+          {`{
   IT: [
     "John",
     "Mike"
@@ -1944,7 +1824,7 @@ console.log("dept", dept);`}
         description="Use reduce() to calculate the total order amount for each customer."
       >
         <CodeBlock>
-{`const orders = [
+          {`const orders = [
   {
     customer: "John",
     amount: 1000
@@ -1985,7 +1865,7 @@ console.log("total", total);`}
         </CodeBlock>
 
         <OutputBlock>
-{`{
+          {`{
   John: 2500,
   Sara: 2500,
   Mike: 3000
@@ -2003,17 +1883,11 @@ console.log("total", total);`}
             🎯 JavaScript Coding Topics Completed
           </Typography>
 
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            sx={{ mt: 1 }}
-          >
-            Unique Values • FizzBuzz • Flatten Array •
-            Flatten Object • Currying • Largest/Smallest •
-            Merge Sorted Arrays • Palindrome • Sorting •
-            Array Methods • Boolean • Count Repetition •
-            Fibonacci • Armstrong • map/filter/reduce •
-            Employee Filtering • Grouping • Reduce Examples
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+            Unique Values • FizzBuzz • Flatten Array • Flatten Object • Currying
+            • Largest/Smallest • Merge Sorted Arrays • Palindrome • Sorting •
+            Array Methods • Boolean • Count Repetition • Fibonacci • Armstrong •
+            map/filter/reduce • Employee Filtering • Grouping • Reduce Examples
           </Typography>
         </CardContent>
       </Card>
@@ -2025,31 +1899,14 @@ console.log("total", total);`}
 /* REUSABLE COMPONENTS */
 /* ============================================================= */
 
-const TopicCard = ({
-  number,
-  title,
-  description,
-  children,
-}) => {
+const TopicCard = ({ number, title, description, children }) => {
   return (
     <Card sx={{ mt: 3 }}>
       <CardContent>
-        <Stack
-          direction="row"
-          spacing={1}
-          alignItems="center"
-          flexWrap="wrap"
-        >
-          <Chip
-            label={`Topic ${number}`}
-            size="small"
-            color="primary"
-          />
+        <Stack direction="row" spacing={1} alignItems="center" flexWrap="wrap">
+          <Chip label={`Topic ${number}`} size="small" color="primary" />
 
-          <Typography
-            variant="h5"
-            fontWeight={700}
-          >
+          <Typography variant="h5" fontWeight={700}>
             {title}
           </Typography>
         </Stack>
@@ -2154,11 +2011,7 @@ const OutputBlock = ({ children }) => {
         borderColor: "divider",
       }}
     >
-      <Typography
-        variant="subtitle2"
-        fontWeight={700}
-        sx={{ mb: 1 }}
-      >
+      <Typography variant="subtitle2" fontWeight={700} sx={{ mb: 1 }}>
         Output:
       </Typography>
 
